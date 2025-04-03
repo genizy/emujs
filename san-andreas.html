@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/gh/genizy/emujs@main/merge.js"></script>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 100%; height: 100%; max-width: 100%">
+      <div id="game"></div>
+    </div>
+    <script>
+      var parts = getParts("https://cdn.jsdelivr.net/gh/genizy/emujs@main/san-andreas/san-andreas.zip", 1, 151)
+      Promise.all([mergeFiles(parts)])
+        .then(([gameUrl]) => {
+          EJS_player = "#game";
+          EJS_core = "core";
+          EJS_gameName = "name";
+          EJS_color = "#0064ff";
+          EJS_startOnLoaded = true;
+          EJS_pathtodata = "https://cdn.jsdelivr.net/gh/genizy/emu@master/";
+          EJS_gameUrl = "url";
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/genizy/emu@master/loader.js"></script>
+  </body>
+</html>
