@@ -82,6 +82,7 @@
         window.gameconfig.max
       );
       var totalParts = parts.length;
+      progressElement.textContent = `Loading: 0/${totalParts}`;
 
       function updateLoadingProgress(loaded) {
         const progressElement = document.getElementById("loading-progress");
