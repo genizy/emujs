@@ -81,10 +81,11 @@
         window.gameconfig.min,
         window.gameconfig.max
       );
+      const progressElement = document.getElementById("loading-progress");
       var totalParts = parts.length;
+      progressElement.textContent = `Loading: 0/${totalParts}`;
 
       function updateLoadingProgress(loaded) {
-        const progressElement = document.getElementById("loading-progress");
         if (loaded === 0) {
           progressElement.textContent = "Loading: 0/0";
         } else {
